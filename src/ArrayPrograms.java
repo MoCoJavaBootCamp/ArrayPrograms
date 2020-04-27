@@ -29,9 +29,9 @@ public class ArrayPrograms {
                 case 4:
                     evenOddOccurrences();
                     break;
-//                case 5:
-//                    parseString();
-//                    break;
+                case 5:
+                    parseString();
+                    break;
                 default:
                     System.out.println("Goodbye!");
                     System.exit(1);
@@ -74,7 +74,7 @@ public class ArrayPrograms {
             System.out.printf("Enter an integer (%d/10)\n", i + 1);
             num[i] = input.nextInt();
         }
-        // check duplicates, if found, reassign current with end and decrease length
+        // check duplicates, if found, reassign current with end and decrease length, decrement j
         for (int i = 0; i < numLen; i += 1) {
             for (int j = i + 1; j < numLen; j += 1) {
                 if (num[i] == num[j]) {
@@ -138,8 +138,19 @@ public class ArrayPrograms {
     //5. Prompt the user to input one line of a string.
     // Parse the string into a word, print out the word and length of the word.
     // Assume that the maximum size of a line is 132.
+    // prompt user to enter string
+    // split string
+    // loop over split string and print length per word
     public static void parseString() {
-        System.out.println("Welcome to Parse String.");
         Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to Parse String.");
+        System.out.println("Enter a string to parse (max 132 characters):");
+        String str = input.nextLine();
+        String[] strSplit = str.split(" ");
+        System.out.println("You entered " + str);
+
+        for (String s : strSplit) {
+            System.out.printf("%s has %d character(s)\n", s, strSplit.length);
+        }
     }
 }
